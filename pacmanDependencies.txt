@@ -1,0 +1,13 @@
+git
+neovim
+gopls
+zellij
+firefox
+waybar
+spotify-launcher
+wl-clipboard
+fzf
+lazygit
+npm
+swww
+digikam
