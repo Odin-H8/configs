@@ -62,6 +62,12 @@ if [[ "$answer" =~ ^[Yy]$ ]]; then
             continue
         fi
 
+        if [[ "$base_name" == "bubbles.json" ]]; then
+            target="$CONFIG_DIR/$base_name"
+            ln -s "$item" "$target"
+            echo -e "${GREEN}Created symlink: $target -> $item${NC}"
+        fi
+
         # Only create symlinks for directories
         if [ -d "$item" ]; then
             target="$CONFIG_DIR/$base_name"

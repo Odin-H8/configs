@@ -1,0 +1,101 @@
+{
+"height": 25,
+"layer": "bottom",
+"position": "top",
+//"output": "eDP-1",
+"spacing": 7,
+"modules-left": [ "cpu", "temperature", "backlight" ],
+"modules-center": ["hyprland/workspaces"],
+"modules-right": ["pulseaudio", "network", "battery", "clock"],
+
+"hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "persistent_workspaces": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": []
+    }
+},
+
+"cpu": {
+    "interval": 10,
+    "format": "  {usage}%",
+    "max-length": 10
+},
+
+"temperature": {
+    "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
+    "input-filename": "temp1_input",
+    "format": " {temperatureC}°C",
+    "on-click": "psensor"
+},
+
+"backlight": {
+    "device": "nvidia_0",
+    "max-length": "4",
+    "format": "{icon}  {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "on-click": "",
+    "on-scroll-up": "brightnessctl set 10%-",
+    "on-scroll-down": "brightnessctl set +10%"
+},
+
+"pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{icon} {volume}% {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": "婢",
+    "format-icons": {
+        "headphone": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
+    },
+    "on-click-right": "pavucontrol",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+},
+
+"network": {
+    "format-wifi": "直  {signalStrength}%",
+    "format-ethernet": " wired",
+    "format-disconnected": "睊 ",
+    "on-click": "kitty --class nmwui nmtui"
+},
+
+"battery": {
+    "bat": "BAT0",
+    "adapter": "ADP0",
+    "interval": 60,
+    "states": {
+        "warning": 30,
+        "critical": 15
+    },
+    "max-length": 20,
+    "format": "{icon}  {capacity}%",
+    "format-warning": "{icon}  {capacity}%",
+    "format-critical": "{icon}  {capacity}%",
+    "format-charging": "  {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-alt": "{icon}  {time}",
+    "format-full": "  {capacity}%",
+    "format-icons": [" ", " ", " ", " ", " "]
+},
+
+"clock": {
+    "format-alt": "<span> </span> {:%a %b %d}",
+    "format": "<span> </span> {:%I:%M %p}"
+},
+}]

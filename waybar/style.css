@@ -1,114 +1,100 @@
-@import "mocha.css";
-
-/* margin: top right bottom left */
-/* Spacing outside the element */
-
-/* padding: top right bottom left */
-/* Spacing inside the element */
-
 * {
-    font-family: SFPro;
-    font-size: 11px;
+    font-family: "UbuntuMono Nerd Font";
+    font-size: 16px;
 }
+
 
 window#waybar {
-    background-color: @crust;
-    color: @text;
-    opacity: 0.85;
-    transition-property: background-color;
-    transition-duration: 0.5s;
-    border-radius: 0px;
-    transition-duration: .5s;
-    margin: 10px 10px;
+    opacity: 0.9;
+    background-color: #225877;
+    color: #ffffff;
 }
 
-window#waybar.hidden {
-    opacity: 0.2;
+
+.modules-left {
+	background-color: #323232;
+	padding: 0px 0px 0px 0px;
 }
+
+
+.modules-right {
+	background-color: #323232;
+	padding: 0px 5px 0px 0px;
+}
+
+
+#custom-scratch {
+	background-color: #323232;
+	color: #b8b8b8;
+	padding: 0px 9px 0px 9px;
+}
+
+
+#workspaces {
+}
+
 
 #workspaces button {
-    color: @text;
-    background: @background3;
-    border-radius: 8px;
-    padding: 0px 10px 0px 5px;
-    margin: 7px 5px 5px 5px;
-    border: 1px solid @subtext1;
+	padding: 0px 11px 0px 11px;
+ 	min-width: 1px;
+	color: #888888;
 }
 
-#workspaces button:hover {
-    background: @surface0;
-    color: @text;
+
+#workspaces button.focused {
+	padding: 0px 11px 0px 11px;
+	background-color: #285577;
+	color: #ffffff;
 }
 
-#workspaces button.active {
-    color: @crust;
-    background: @overlay2;
-    border: none;
+
+#mode {
+	 background-color: #900000;
+	 color: #ffffff;
+     padding: 0px 5px 0px 5px;
+     border: 1px solid #2f343a;
 }
 
-#custom-launcher,
-#clock,
-#battery,
-#cpu,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#custom-powermenu{
-    padding: 0px 20px;
-    margin: 7px 0px 10px 0px;
-    border-radius: 8px;
-    color: @crust;
+
+#window {
+	 color: #ffffff;
+	 background-color: #285577;
+     padding: 0px 10px 0px 10px;
 }
 
-#window,
 
-#cpu {
-    background-color: @lavender;
+window#waybar.empty #window {
+	background-color: transparent;
+	color: transparent;
 }
 
-#temperature{
-    background-color: @blue;
+
+window#waybar.empty {
+	background-color: #323232;
 }
 
-#backlight {
-    background-color: @sapphire;
+
+#network, #temperature, #backlight, #pulseudio, #battery {
+    padding: 0px 15px 0px 15px;
 }
 
-#pulseaudio {
-    padding: 0px 20px 0px 17px;
-    background-color: @teal;
-}
-
-#network {
-    padding: 0px 15px 0px 20px;
-    background-color: @green;
-}
-
-#battery {
-    background-color: @yellow;
-}
 
 #clock {
-    background-color: @peach;
+	margin: 0px 15px 0px 15px;
 }
 
-@keyframes blink {
-to {
-    background-color: rgba(30, 34, 42, 0.5);
-    color: #abb2bf;
-}
+
+#tray{
+   padding: 0px 8px 0px 5px;
+   margin: 0px 5px 0px 5px;
 }
 
-#battery.critical:not(.charging) {
-    color: #f53c3c;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+
+#battery.critical {
+   color: #ff5555;
 }
 
-label:focus {
-    background-color: #000000;
+
+#network.disconnected {
+    color: #ff5555;
 }

@@ -11,3 +11,4 @@ lazygit
 npm
 swww
 digikam
+luarocks
