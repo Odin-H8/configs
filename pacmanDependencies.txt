@@ -12,3 +12,4 @@ npm
 swww
 digikam
 luarocks
+nwg-displays

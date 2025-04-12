@@ -3,98 +3,92 @@
     font-size: 16px;
 }
 
-
 window#waybar {
-    opacity: 0.9;
-    background-color: #225877;
-    color: #ffffff;
+    opacity: 0.95;
+    background-color: #1e1e2e;
+    color: #cdd6f4;
 }
 
-
-.modules-left {
-	background-color: #323232;
-	padding: 0px 0px 0px 0px;
+.modules-left, .modules-right {
+    background-color: #313244;
+    padding: 0px;
 }
-
-
-.modules-right {
-	background-color: #323232;
-	padding: 0px 5px 0px 0px;
-}
-
 
 #custom-scratch {
-	background-color: #323232;
-	color: #b8b8b8;
-	padding: 0px 9px 0px 9px;
+    background-color: #313244;
+    color: #a6adc8;
+    padding: 0px 9px;
 }
-
 
 #workspaces {
+    background: transparent;
 }
-
 
 #workspaces button {
-	padding: 0px 11px 0px 11px;
- 	min-width: 1px;
-	color: #888888;
+    padding: 0px 11px;
+    min-width: 1px;
+    background-color: transparent;
+    color: #6c7086;  /* inactive text */
+    border-radius: 6px;
 }
-
 
 #workspaces button.focused {
-	padding: 0px 11px 0px 11px;
-	background-color: #285577;
-	color: #ffffff;
+    background-color: #89b4fa; /* blue */
+    color: #1e1e2e;
+    font-weight: bold;
 }
 
+#workspaces button.active {
+    color: #1e1e2e;
+    font-weight: bold;
+}
+
+#workspaces .hosting-monitor {
+    background-color: #cba6f7;
+}
 
 #mode {
-	 background-color: #900000;
-	 color: #ffffff;
-     padding: 0px 5px 0px 5px;
-     border: 1px solid #2f343a;
+    background-color: #f38ba8; /* red */
+    color: #1e1e2e;
+    padding: 0px 5px;
+    border: 1px solid #313244;
 }
-
 
 #window {
-	 color: #ffffff;
-	 background-color: #285577;
-     padding: 0px 10px 0px 10px;
+    color: #cdd6f4;
+    background-color: #45475a; /* surface1 */
+    padding: 0px 10px;
 }
-
 
 window#waybar.empty #window {
-	background-color: transparent;
-	color: transparent;
+    background-color: transparent;
+    color: transparent;
 }
-
 
 window#waybar.empty {
-	background-color: #323232;
+    background-color: #313244;
 }
-
 
 #network, #temperature, #backlight, #pulseudio, #battery {
-    padding: 0px 15px 0px 15px;
+    padding: 0px 15px;
+    background-color: #313244;
+    color: #cdd6f4;
 }
-
 
 #clock {
-	margin: 0px 15px 0px 15px;
+    margin: 0px 15px;
+    color: #f9e2af; /* yellow */
 }
 
-
-#tray{
-   padding: 0px 8px 0px 5px;
-   margin: 0px 5px 0px 5px;
+#tray {
+    padding: 0px 8px 0px 5px;
+    margin: 0px 5px;
 }
-
 
 #battery.critical {
-   color: #ff5555;
+    color: #f38ba8; /* red */
 }
 
-
 #network.disconnected {
-    color: #ff5555;
+    color: #f38ba8; /* red */
 }

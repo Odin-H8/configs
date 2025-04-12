@@ -15,6 +15,12 @@
         "on-click": "activate",
         "on-scroll-up": "hyprctl dispatch workspace e+1",
         "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "format": "{name}",
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+        }
     },
 
     "tray": {
@@ -48,7 +54,7 @@
 
 
     "network": {
-        "interface": "wlp4s0",
+        "interface": "eno1",
         "format-wifi": "   WiFi-On",
         "format-disconnected": "睊   Disconnected",
         "interval": 60
@@ -82,8 +88,6 @@
         },
 
         "on-click": "kmix"
-
-
     }
 
 }
