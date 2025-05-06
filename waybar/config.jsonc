@@ -4,22 +4,23 @@
     "height": 25,
 
 
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-center": [],
+    "modules-left": ["hyprland/window"],
+    "modules-center": ["hyprland/workspaces"],
     "modules-right": ["network", "temperature", "backlight", "pulseaudio", "battery", "clock", "tray"],
 
 
     "hyprland/workspaces": {
         "disable-scroll": true,
-        "all-outputs": true,
+        "all-outputs": false,
         "on-click": "activate",
         "on-scroll-up": "hyprctl dispatch workspace e+1",
         "on-scroll-down": "hyprctl dispatch workspace e-1",
-        "format": "{name}",
+        "format": "[ {id} ]",
         "persistent-workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
+            "1": ["[1]"],
+            "2": ["[2]"],
+            "3": ["[3]"],
+            "4": ["[4]"],
         }
     },
 

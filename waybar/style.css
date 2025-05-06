@@ -1,78 +1,55 @@
+@import url("mocha.css");
+
 * {
     font-family: "UbuntuMono Nerd Font";
     font-size: 16px;
+    color: @text;
 }
 
 window#waybar {
-    opacity: 0.95;
-    background-color: #1e1e2e;
-    color: #cdd6f4;
+    opacity: 0.70;
+    background-color: @base;
 }
 
 .modules-left, .modules-right {
-    background-color: #313244;
     padding: 0px;
-}
-
-#custom-scratch {
-    background-color: #313244;
-    color: #a6adc8;
-    padding: 0px 9px;
-}
-
-#workspaces {
-    background: transparent;
 }
 
 #workspaces button {
     padding: 0px 11px;
     min-width: 1px;
-    background-color: transparent;
-    color: #6c7086;  /* inactive text */
-    border-radius: 6px;
 }
 
 #workspaces button.focused {
-    background-color: #89b4fa; /* blue */
-    color: #1e1e2e;
     font-weight: bold;
 }
 
 #workspaces button.active {
-    color: #1e1e2e;
     font-weight: bold;
 }
 
-#workspaces .hosting-monitor {
-    background-color: #cba6f7;
-}
-
 #mode {
-    background-color: #f38ba8; /* red */
-    color: #1e1e2e;
+    background-color: transparent;
     padding: 0px 5px;
     border: 1px solid #313244;
 }
 
 #window {
-    color: #cdd6f4;
-    background-color: #45475a; /* surface1 */
+    background-color: transparent;
     padding: 0px 10px;
 }
 
 window#waybar.empty #window {
     background-color: transparent;
-    color: transparent;
 }
 
 window#waybar.empty {
-    background-color: #313244;
+    background-color: transparent;
 }
 
 #network, #temperature, #backlight, #pulseudio, #battery {
     padding: 0px 15px;
-    background-color: #313244;
-    color: #cdd6f4;
+    background-color: transparent;
 }
 
 #clock {
