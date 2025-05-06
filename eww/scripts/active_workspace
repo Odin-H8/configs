@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Get the active workspace ID on the focused monitor
+monitor_name="HDMI-A-2"
+active_workspace=$(hyprctl monitors -j | jq -r --arg monitor "$monitor_name" '.[] | select(.name==$monitor) | .activeWorkspace.id')
+
+# Get a list of all windows (clients) on that workspace
+windows_on_workspace=$(hyprctl clients -j | jq "[.[] | select(.workspace.id == $active_workspace)] | length")
+
+# Check if there are any windows
+if [ "$windows_on_workspace" -gt 0 ]; then
+    # Windows exist, run your desired script
+    ~/.config/configs/eww/launch_dashboard
+fi

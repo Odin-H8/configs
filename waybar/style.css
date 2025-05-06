@@ -28,23 +28,9 @@ window#waybar {
     font-weight: bold;
 }
 
-#mode {
-    background-color: transparent;
-    padding: 0px 5px;
-    border: 1px solid #313244;
-}
-
 #window {
     background-color: transparent;
     padding: 0px 10px;
-}
-
-window#waybar.empty #window {
-    background-color: transparent;
-}
-
-window#waybar.empty {
-    background-color: transparent;
 }
 
 #network, #temperature, #backlight, #pulseudio, #battery {

@@ -13,3 +13,4 @@ swww
 digikam
 luarocks
 nwg-displays
+jq
