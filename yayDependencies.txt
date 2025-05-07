@@ -1,3 +1,4 @@
 walker-bin
 waypaper
 oh-my-posh
+eww-git

@@ -1,0 +1,126 @@
+
+;; System vars
+(defpoll HOST :interval "5s" `hostname`)
+(defpoll CPU_USAGE :interval "1s" `sh scripts/sys_info --cpu`)
+(defpoll MEM_USAGE :interval "1s" `sh scripts/sys_info --mem`)
+(defpoll BLIGHT :interval "1s" `sh scripts/sys_info --blight`)
+(defpoll BATTERY :interval "5s" `sh scripts/sys_info --bat`)
+
+;; Time vars
+(defpoll HOUR :interval "5s" `date +\"%I\"`)
+(defpoll MIN :interval "5s" `date +\"%M\"`)
+(defpoll MER :interval "5s" `date +\"%p\"`)
+(defpoll DAY :interval "5s" `date +\"%A\"`)
+
+;; Uptime vars
+(defpoll UPHOUR :interval "5s" `uptime -p | awk '{print $2 \" \" $3}' | sed 's/,//g'`)
+(defpoll UPMIN :interval "5s" `uptime -p | awk '{print $4 \" \" $5}'`)
+
+
+;; system
+(defwidget system []
+	(box :class "genwin" :vexpand "false" :hexpand "false"
+		(box :orientation "v" :spacing 35 :halign "center" :valign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+			(box :class "cpu_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false"
+				(label :class "iconcpu" :text "")
+				(scale :min 0 :max 100 :value CPU_USAGE :active "false"))
+			(box :class "mem_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false"
+				(label :class "iconmem" :text "")
+				(scale :min 0 :max 100 :value MEM_USAGE :active "false"))
+			(box :class "bright_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false"
+				(label :class "iconbright" :text "")
+				(scale :min 0 :max 100 :value BLIGHT :active "false"))
+			(box :class "bat_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false"
+				(label :class "iconbat" :text "")
+				(scale :min 0 :max 100 :value BATTERY :active "false")))))
+
+;; clock
+(defwidget clock []
+	(box :class "genwin" :orientation "h" :spacing 50 :space-evenly false :vexpand "false" :hexpand "false"
+		(box :orientation "h" :spacing 0
+			(label :class "time_hour" :valign "start" :wrap "true" :limit-width 25 :text HOUR)
+			(label :class "time_min" :valign "end" :wrap "true" :limit-width 25 :text MIN))
+		(box :orientation "v" :spacing 0
+			(label :class "time_mer" :valign "start" :halign "end" :wrap "true" :limit-width 25 :text MER)
+			(label :class "time_day" :valign "end" :halign "end" :wrap "true" :limit-width 25 :text DAY))))
+
+
+;; uptime
+(defwidget uptime []
+	(box :class "genwin"
+		(box :orientation "h" :halign "center" :spacing 40 :space-evenly "false" :vexpand "false" :hexpand "false"
+			(label :class "icontimer" :valign "center" :text "祥")
+			(box :orientation "v" :valign "center" :spacing 0 :space-evenly "false" :vexpand "false" :hexpand "false"
+				(label :class "uphour" :halign "start" :wrap "true" :limit-width 25 :text UPHOUR)
+				(label :class "upmin" :halign "start" :wrap "true" :limit-width 25 :text UPMIN)))))
+
+;; apps
+(defwidget apps []
+	(box :class "genwin" :orientation "v" :space-evenly "false" :vexpand "false" :hexpand "false"
+		(box :class "appbox" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false"
+			(button :style "background-image: url('images/icons/firefox.svg');" :class "app_fox" :onclick "sh scripts/open_apps.sh --ff")
+			(button :style "background-image: url('images/icons/discord.svg');" :class "app_discord" :onclick "sh scripts/open_apps.sh --dc")
+			(button :style "background-image: url('images/icons/terminal.svg');" :class "app_terminal" :onclick "sh scripts/open_apps --tr"))))
+
+
+
+;; power buttons
+(defwidget logout []
+	(box :class "genwin" :vexpand "false" :hexpand "false"
+		(button :class "btn_logout" :onclick "openbox --exit" "")))
+(defwidget sleep []
+	(box :class "genwin" :vexpand "false" :hexpand "false"
+		(button :class "btn_sleep" :onclick "systemctl suspend" "")))
+(defwidget reboot []
+	(box :class "genwin" :vexpand "false" :hexpand "false"
+		(button :class "btn_reboot" :onclick "systemctl reboot" "")))
+(defwidget poweroff []
+	(box :class "genwin" :vexpand "false" :hexpand "false"
+		(button :class "btn_poweroff" :onclick "systemctl poweroff" "")))
+
+;; system
+(defwindow system :stacking "bg" :focusable "false" :screen 1
+        :monitor 0
+	    :geometry (geometry :x 515 :y 500 :width 350 :height 325)
+					(system))
+;; clock
+(defwindow clock :stacking "bg" :focusable "false" :screen 1
+        :monitor 0
+	    :geometry (geometry :x 515 :y 150 :width 350 :height 155)
+					(clock))
+
+;; uptime
+(defwindow uptime :stacking "bg" :focusable "false" :screen 1
+        :monitor 0
+	    :geometry (geometry :x 515 :y 320 :width 350 :height 155)
+					(uptime))
+
+;; apps
+(defwindow apps :stacking "bg" :focusable "false" :screen 1
+        :monitor 0
+	    :geometry (geometry :x 890 :y 500 :width 290 :height 110)
+					(apps))
+
+;; logout
+(defwindow logout :stacking "bg" :focusable "false" :screen 1
+        :monitor 0
+	    :geometry (geometry :x 895 :y 180 :width 130 :height 130)
+					(logout))
+
+;; sleep
+(defwindow sleep :stacking "bg" :focusable "false" :screen 1
+        :monitor 0
+	    :geometry (geometry :x 1050 :y 180 :width 130 :height 130)
+					(sleep))
+
+;; reboot
+(defwindow reboot :stacking "bg" :focusable "false" :screen 1
+        :monitor 0
+	    :geometry (geometry :x 895 :y 340 :width 130 :height 130)
+					(reboot))
+
+;; poweroff
+(defwindow poweroff :stacking "bg" :focusable "false" :screen 1
+        :monitor 0
+	    :geometry (geometry :x 1050 :y 340 :width 130 :height 130)
+					(poweroff))
