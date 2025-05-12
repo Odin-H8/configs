@@ -8,6 +8,7 @@ return {
             dofile(path .. "/lua/overseer/other/dapconfig.lua")
 
             vim.keymap.set("n", "<F1>", dap.continue)
+            vim.keymap.set("n", "<F2>", dap.step_into)
             vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint)
             vim.keymap.set("n", "<leader>ds", "<cmd> DapNew <CR>")
 

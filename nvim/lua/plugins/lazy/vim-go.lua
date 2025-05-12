@@ -14,8 +14,6 @@ return {
         vim.g.go_auto_type_info = 1
         --vim.g.go_auto_sameids = 1
 
-        -- Should probably remap to 'gd' and 'gb' or something
-        vim.keymap.set("n", "S", "<Cmd>:GoDef <CR>")
-        vim.keymap.set("n", "Z", "<Cmd>:GoDefPop <CR>")
+        vim.keymap.set("n", "<leader>vet", "<cmd> GoVet ./... <CR>")
     end
 }
