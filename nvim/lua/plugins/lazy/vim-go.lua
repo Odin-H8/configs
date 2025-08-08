@@ -14,6 +14,15 @@ return {
         vim.g.go_auto_type_info = 1
         --vim.g.go_auto_sameids = 1
 
+        --vim.g.go_metalinter_autosave = 1
+        vim.g.go_metalinter_autosave_enabled = {'govet', 'staticcheck', 'errcheck'}
+        vim.g.go_metalinter_enabled = {'govet', 'staticcheck', 'errcheck'}
+        vim.g.go_list_type = "quickfix"
+        vim.g.go_autodetect_gopath = 1
+        vim.g.go_metalinter_command = "golangci-lint"
+
+        --vim.g.go_fmt_command = "goimports"
+
         vim.keymap.set("n", "<leader>vet", "<cmd> GoVet ./... <CR>")
     end
 }

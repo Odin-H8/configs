@@ -64,7 +64,7 @@ return {
                             }
                         }
                     }
-                end,
+                end
             }
         })
 
